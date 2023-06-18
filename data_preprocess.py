@@ -1,13 +1,16 @@
 import os
+import json
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 
+import config as cfg
 
 def create_sequence_wise_data(train, mean_temp, time_steps):
     x_train = []
     y_train = []
+    # based on time step generate corresponding data
     for value in range(len(train) - time_steps):
         temps = train.iloc[value:(value + time_steps)].values
         x_train.append(temps)        

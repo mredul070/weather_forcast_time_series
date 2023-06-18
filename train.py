@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # generate train Test Data
     x_train, y_train, x_test, y_test = generate_formatted_data(cfg.DATA_DIR, cfg.CSV_NAME, cfg.TRAIN_DATA_RATIO, cfg.TIME_STEPS)
     # create the model
-    model = md.LSTM_model(x_train, cfg.LSTM_LAYER)
+    model = md.LSTM_model(cfg.TIME_STEPS, cfg.LSTM_LAYER)
     # Train the model
     history = model.fit(x_train, 
                         y_train, 
@@ -33,3 +33,8 @@ if __name__ == '__main__':
     model.save(f'models/it_{itr}_lstm.h5')
     # save logs
     plot_history(history)
+
+    # evaluate model performance
+    results = model.evaluate(x_test, y_test)
+    print("Model Prerformance Report")
+    print(f'{model.metrics_names} -> {results}')
