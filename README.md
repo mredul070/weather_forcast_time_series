@@ -4,7 +4,7 @@
 ## Assumptions
 
 - User will input the previous temperature of certain number of days sequentially, based on which we will predict next day's temperature
-- Here the mean temperature is predicted for a particular day
+- Here the mean temperature in **degree celcius** is predicted for a particular day
 
 ## Why LSTM
 - LSTM networks are well-suited to classifying, processing and making predictions based on time series data, since there can be lags of unknown duration between important events in a time series. LSTMs were developed to deal with the vanishing gradient problem that can be encountered when training traditional RNNs
