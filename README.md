@@ -1,7 +1,6 @@
 # Weather Forcast Time Series
 ***This repository contains code to predict weather condition based on time series using various LSTM.***
 
-
 ## Assumptions
 
 - User will input the previous temperature of certain number of days sequentially, based on which we will predict next day's temperature
@@ -13,6 +12,11 @@
 - Using LSTM, time series forecasting models can predict future values based on previous, sequential data. This provides greater accuracy for demand forecasters which results in better decision making for the business.
 
 ****
+# Project Description
+- Server Framework : Flask
+- Deep learning Framework : Tensorflow
+- Data Manipulation : Numpy, Pandas and Scikit-learn
+
 # Project Setup/Installation
 *Please install python for this project in your pc.*
 
@@ -59,11 +63,7 @@ You will receive the mean temperature for the next day in the response.
 
 N.B: As the model was trained on the Dhaka city any extreme temperature will be discounted. API response will notify if any extreme case is Detected.
 ****
-# Project Description
-- Server Framework : Flask
-- Deep learning Framework : Tensorflow
-- Data Manipulation : Numpy, Pandas and Scikit-learn
-
+# Project Details
 
 ## Config 
 In the project repository there is a config.py file which sets up the parameter for both model training and inference. This is simplify the training and inference process and create a single point of control.
