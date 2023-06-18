@@ -11,7 +11,7 @@ def plot_history(history):
     plt.xlabel('Epochs')
     plt.ylabel('Loss')
     plt.legend()
-    plt.savefig('logs/training_logs.png')
+    plt.savefig(f'logs/training_logs_it_{cfg.ITERATION}.png')
 
 
 if __name__ == '__main__':
