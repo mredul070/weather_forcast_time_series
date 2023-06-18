@@ -49,7 +49,8 @@ This command will launch a development server in your computer at the following 
 - method : GET
 - querystring parameter : temp
     - example : temp=[20,25,22,23,24]
-N.B: Please use this fixed for calling this API.
+
+N.B: Please use this fixed format for calling this API.
 
 The values define average temperature for 5 sequencial days which are comma seperated. The value is the mean temperature of the earliest day and so on.
 
@@ -57,11 +58,48 @@ The values define average temperature for 5 sequencial days which are comma sepe
 You will receive the mean temperature for the next day in the response.
 
 N.B: As the model was trained on the Dhaka city any extreme temperature will be discounted. API response will notify if any extreme case is Detected.
+****
+# Project Description
+- Server Framework : Flask
+- Deep learning Framework : Tensorflow
+- Data Manipulation : Numpy, Pandas and Scikit-learn
+
 
 ## Config 
 In the project repository there is a config.py file which sets up the parameter for both model training and inference. This is simplify the training and inference process and create a single point of control.
 
-### Time Steps
+- ### Time Steps
 This is define how many previous data is require to predict the temperature of the next day. You can change this to any day. The model training and inference will update autometically. But then you will have provice that many number of days in the querystring to get the result.
+
+- ### Train Ratio
+How much of the total will be used for training. This value should range between 0 and 1.
+
+- ### LSTM Layer
+Number of LSTM Layer will be used During training.
+
+- ### Iteration
+This name of the training iteration. Based on this number the logs and model will be saved. During inference based on this name the model will be selected to infer.
+
+## Data Processing
+- We need to process the data accordingly before feeding into the model and check for data consitency.
+
+- In the *EDA.ipynb* data consistency is checked.
+
+- *data_preprocess.py* prepares the data in the required format for training. 
+
+## Model Training
+- *model.py* defines the base model for training
+
+- you can set the batch size and number of epoch for training from the config file. 
+
+- run *train.py* script for model training.
+```
+python train.py
+```
+- The trained model is saved at the model directory. The model from the last epoch is the saved model. 
+- You can check the logs at logs direcotry where an image show training and validation loss.
+
+## Model Inferencing
+- use *inference.py* script for single inference provive the appropiate value in the *get_prediction()* function.
 
     
