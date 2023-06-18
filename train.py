@@ -22,8 +22,8 @@ if __name__ == '__main__':
     # Train the model
     history = model.fit(x_train, 
                         y_train, 
-                        epochs=5, 
-                        batch_size=16, 
+                        epochs=cfg.EPOCHS, 
+                        batch_size=cfg.BATCH_SIZE, 
                         validation_data = (x_test, y_test),
                         verbose=1, 
                         shuffle=False)
