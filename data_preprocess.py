@@ -4,8 +4,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 
-import config as cfg
-
 
 def create_sequence_wise_data(train, mean_temp, time_steps):
     x_train = []
@@ -51,9 +49,9 @@ def generate_formatted_data(data_dir, csv_name, train_data_ratio, time_steps):
     print(f'Train Data Shape -> {x_train.shape}')
     print(f'Prediction Data Shape -> {y_train.shape}')
 
-    return scaler, x_train, y_train, x_test, y_test
+    return x_train, y_train, x_test, y_test
 
 
 if __name__ == '__main__':
-    scaler, x_train, y_train, x_test, y_test = generate_formatted_data(cfg.DATA_DIR, cfg.CSV_NAME, cfg.TRAIN_DATA_RATIO, cfg.TIME_STEPS)
+    x_train, y_train, x_test, y_test = generate_formatted_data(cfg.DATA_DIR, cfg.CSV_NAME, cfg.TRAIN_DATA_RATIO, cfg.TIME_STEPS)
     # print(scaler.value)
